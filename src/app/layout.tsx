@@ -105,7 +105,7 @@ export default async function RootLayout({
         {/* Expose selected runtime env vars to client in a small safe object to support feature flags at runtime */}
         <script dangerouslySetInnerHTML={{ __html: `window.__ENV__ = Object.assign(window.__ENV__ || {}, { NEXT_PUBLIC_MENU_CUSTOMIZATION_ENABLED: ${JSON.stringify(process.env.NEXT_PUBLIC_MENU_CUSTOMIZATION_ENABLED)} });` }} />
       </head>
-      <body className={inter.className} suppressHydrationWarning>
+      <body className={`${inter.className} ${userLocale === 'ar' ? notoSansArabic.className : ''}`} suppressHydrationWarning>
         {/* Global skip link for keyboard users */}
         <a
           href="#site-main-content"
